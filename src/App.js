@@ -1,12 +1,13 @@
-import ReactDOM from 'react-dom'
-import LandingPage from './routes/LandingPage/landing-page.component';
-import {Routes, Route} from 'react-router-dom';
+import logo from './logo-svg.svg';
+import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
-import { faPlus } from '@fortawesome/free-solid-svg-icons'
-import './App.css';
+import { faPlus, faCircle } from '@fortawesome/free-solid-svg-icons'
+import Feed from './routes/feed.component';
 
-library.add(fab, faPlus);
+library.add(fab, faPlus, faCircle);
 
 function App() {
   return (
