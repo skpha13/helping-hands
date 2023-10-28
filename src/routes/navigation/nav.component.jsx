@@ -1,14 +1,14 @@
 import React from "react";
 import { Outlet, Link } from "react-router-dom";
 import LogoImg from "../../assets/logo/logo-png-256.png";
-import FontAwesomeIcon from "@fortawesome/react-fontawesome";
 import user_icon from "../../assets/user_icon.png";
 
 const Navbar = ({ links }) => {
   return (
     <>
       <div className="flex flex-row bg-white m-2 justify-center rounded-lg p-2 justify-between items-center">
-        <img src={LogoImg} alt="logo-img" className="max-w-[48px]" />
+        <Link to='/'><img src={LogoImg} alt="logo-img" className="max-w-[48px]" />
+        </Link>
         <div>
           {links.map((link, index) => {
             return (
