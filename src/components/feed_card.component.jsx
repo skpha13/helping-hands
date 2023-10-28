@@ -3,7 +3,7 @@ import ButtonPrimary from "./button_primary.component";
 
 const FeedCard = ({ name, img, text }) => {
   return (
-    <div className="bg-ui-background p-2 m-2 rounded-lg">
+    <div className="bg-ui-background p-4 m-8 rounded-lg">
       {/* div for flex to center elements */}
       <div className=" flex flex-col items-center w-full justify-between">
         <h1 className="text-2xl">{name}</h1>
