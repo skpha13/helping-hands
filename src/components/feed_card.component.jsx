@@ -4,6 +4,11 @@ import { useState } from "react";
 import Information from "./information.component";
 
 const FeedCard = ({ name, img, text, category, canHelp }) => {
+  name = name || "Nume";
+  img = img || "";
+  text = text || "Descriere";
+  category = category || { name: "Obiect", quantity: 0 };
+
   const [showInfo, setShowInfo] = useState(false);
 
   const onHelpClick = () => {
