@@ -45,11 +45,10 @@ const UserPage = () => {
             radius: 2000,
             stroke: false,
         }).addTo(map);
-//44.39 26.04
+
         map.on('click', (mapEvent)=>
         console.log(mapEvent.latlng))
-
-        L.marker([44.39, 26.04]).addTo(map);
+        
       }, () => {
         alert("Nu am putut să te localizez!");
       });
