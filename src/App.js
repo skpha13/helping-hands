@@ -2,10 +2,11 @@ import ReactDOM from 'react-dom'
 import LandingPage from './routes/LandingPage/landing-page.component';
 import {Routes, Route} from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core'
-import logo from './logo-svg.svg';
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import './App.css';
-import { fas } from '@fortawesome/free-solid-svg-icons'
-library.add(fas)
+
+library.add(fab, faPlus);
 
 function App() {
   return (
