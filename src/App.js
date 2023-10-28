@@ -1,5 +1,11 @@
 import logo from './logo-svg.svg';
 import './App.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
+
+library.add(fab, faPlus);
 
 function App() {
   return (
