@@ -7,7 +7,7 @@ import LandingPage from './routes/LandingPage/landing-page.component';
 import Dashboard from './routes/dashboard.component';
 import NavbarONG from './components/navbar_ong.component';
 import Navbar from './routes/navigation/nav.component';
-// import UserMap from './routes/map.component';
+import UserMap from './routes/UserMap/user-map.component';
 // import ONGPage from './routes/ONGPage/ong-page.component';
 import './App.css';
 
@@ -20,7 +20,7 @@ function App() {
 
       <Route path='utilizator' element={<Navbar links={[{ name: "Feed", path: "feed" }, { name: "Harta", path: "harta" }]} />} >
         <Route path="feed" element={<Feed />} />
-        {/* <Route path="harta" element={<UserMap />} /> */}
+        <Route path="harta" element={<UserMap />} />
       </Route>
 
       <Route path='navbarong' element={<NavbarONG />} >
