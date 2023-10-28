@@ -11,7 +11,12 @@ library.add(fab, faPlus);
 function App() {
   return (
    <Routes>
-    <Route path="/" element={<LandingPage/>}></Route>
+    <Route path="/" element={<LandingPage/>}>
+      {/* <Route path='utilizator' element={<UserPage/>}>
+
+      </Route>
+      <Route path='ong' element={<ONGPage/>}></Route> */}
+    </Route>
    </Routes>
   );
 }
