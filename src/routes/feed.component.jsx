@@ -7,6 +7,8 @@ import axios from "axios";
 const Feed = () => {
   const [posts, setPosts] = useState([]);
   const [arePostsLoaded, setPostsLoaded] = useState(false);
+  const [counties, setCounties] = useState([]);
+  const [areCountiesLoaded, setCountiesLoaded] = useState(false);
 
   const getAllPosts = async () => {
     try {
@@ -30,9 +32,34 @@ const Feed = () => {
     fetchData();
   }, []);
 
+  const getAllCounties = async () => {
+    try {
+      const response = await axios.get(
+        "https://localhost:7272/api/Post/counties"
+      );
+      return response.data.$values;
+    } catch (error) {
+      console.log(error);
+      if (error.response.data.status !== 200) {
+        console.log(error.response.data.message);
+      }
+      return [];
+    }
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const counties = await getAllCounties();
+      setCounties(counties);
+      setCountiesLoaded(true);
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <div>
-      <FilterOng />
+      {areCountiesLoaded && <FilterOng counties={counties} />}
 
       <div className="m-8">
         {arePostsLoaded &&

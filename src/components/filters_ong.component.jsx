@@ -1,6 +1,6 @@
 import ButtonPrimary from "../components/button_primary.component";
 
-const FilterOng = () => {
+const FilterOng = ({ counties }) => {
   return (
     <div className="bg-ui-primary rounded-lg m-4 p-2 text-lg">
       <div className="flex flex-row items-center justify-evenly">
@@ -20,9 +20,11 @@ const FilterOng = () => {
         <div>
           <label className="mr-2">Judet</label>
           <select className="rounded-xl bg-ui-background p-2">
-            <option value="1">Bucuresti</option>
-            <option value="2">Ploiesti</option>
-            <option value="3">Brasov</option>
+            {counties.map((county, index) => (
+              <option key={index} value={county}>
+                {county}
+              </option>
+            ))}
           </select>
         </div>
 
