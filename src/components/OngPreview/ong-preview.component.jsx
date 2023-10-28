@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import AluzivaImg from '../../assets/aluziva.png';
 import './ong-preview.styles.css';
 const OngPreview = () => {
     const [ong, setOng] = useState({});
@@ -21,7 +22,7 @@ const OngPreview = () => {
     return (
         <div className='ong-profile-container'>
             <h2 className='ong-profile-title'>{ong.titlu}</h2>
-            <div className='ong-profile-img'> <img src={ong.imagine} alt="logo-aluziva"/></div>
+            <div className='ong-profile-img'> <img src={AluzivaImg} alt="logo-aluziva"/></div>
             <p className='ong-profile-desc'>{ong.descriere}</p>
             <h3 className='ong-profile-contact'>Contact</h3>
             <p>{ong.adresa}</p>

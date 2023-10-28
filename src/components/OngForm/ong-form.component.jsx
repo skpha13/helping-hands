@@ -68,10 +68,6 @@ const OngForm = () => {
         <div className='ong-profile-btn-container'>
         <ButtonPrimary name="Salveaza" icon="" className="ong-edit-btn"/>
         </div>
-
-        <div className="ong-profile-btn-container">
-          <ButtonPrimary name="Salveaza" icon="" className="ong-edit-btn" />
-        </div>
       </form>
     </div>
   );
