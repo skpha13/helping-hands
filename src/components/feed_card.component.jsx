@@ -33,7 +33,9 @@ const FeedCard = ({ name, img, text, category, canHelp }) => {
 
       <p className="ml-10 mr-10 text-base">Avem nevoie de:</p>
       <div className="flex flex-col justify-between ml-10 mr-10">
-        <Need name={category.name} quantity={category.quantity}></Need>
+        {category.map((need, index) => (
+          <Need key={index} name={need.name} quantity={need.quantity}></Need>
+        ))}
       </div>
 
       {canHelp && (
