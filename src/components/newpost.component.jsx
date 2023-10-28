@@ -1,5 +1,6 @@
 import { useState } from "react";
 import ButtonPrimary from "./button_primary.component";
+import axios from "axios";
 
 const NewPost = () => {
   const [title, setTitle] = useState("");
@@ -21,6 +22,22 @@ const NewPost = () => {
 
   const handleDescriptionChange = (event) => {
     setDescription(event.target.value);
+  };
+
+  const putPOst = async () => {
+    try {
+      const response = axios.post("https://localhost:7272/api/Post/store", {
+        title: title,
+        description: description,
+        ongId: 1,
+        categoryId: 1,
+        address: "Str. Mihai Eminescu",
+        county: "Bucuresti",
+      });
+      return response;
+    } catch (error) {
+      console.log(error.data.message);
+    }
   };
 
   return (
@@ -52,7 +69,7 @@ const NewPost = () => {
           ></input>
         </div>
 
-        <div className="m-0 m-auto mt-4 mb-4">
+        <div onClick={putPOst} className="m-0 m-auto mt-4 mb-4">
           <ButtonPrimary name="Adauga Postare" />
         </div>
       </form>
