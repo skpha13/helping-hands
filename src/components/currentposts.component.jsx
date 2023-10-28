@@ -4,6 +4,8 @@ import ButtonPrimary from "./button_primary.component";
 import ButtonSecondaryRed from "./buttonSecondaryRed.component";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import img1 from "../assets/burnt_house.jpg";
+import img2 from "../assets/casa_de_copii.jpg";
 
 const CurrentPosts = () => {
   const [posts, setPosts] = useState([]);
@@ -33,16 +35,11 @@ const CurrentPosts = () => {
 
   const deletePost = async (index) => {
     try {
+      console.log(posts[index].id);
       const response = await axios.delete(
         "https://localhost:7272/api/Post/delete?id=" + posts[index].id
       );
-      if (response === "Stergerea a reusit") {
-        console.log("Stergerea a reusit");
-        const updatedPosts = [...posts];
-        updatedPosts.splice(index, 1);
-        setPosts(updatedPosts);
-        window.location.reload(true);
-      }
+      return response;
     } catch (error) {
       console.log(error);
     }
@@ -57,7 +54,7 @@ const CurrentPosts = () => {
               <FeedCard
                 key={index}
                 name={post.title}
-                img={logo1024}
+                img={index === 0 ? img1 : index === 1 ? img2 : logo1024}
                 category={post.needs.$values}
                 text={post.description}
                 canHelp={false}
@@ -69,7 +66,9 @@ const CurrentPosts = () => {
                   icon="fa-solid fa-pen-to-square"
                 />
                 <ButtonSecondaryRed
-                  onHelpClick={deletePost(index)}
+                  onHelpClick={() => {
+                    deletePost(index);
+                  }}
                   name="Sterge"
                 />
               </div>

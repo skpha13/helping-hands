@@ -34,9 +34,10 @@ const NewPost = () => {
         address: "Str. Mihai Eminescu",
         county: "Bucuresti",
       });
+      console.log(response);
       return response;
     } catch (error) {
-      console.log(error.data.message);
+      console.log("error: inserting failed");
     }
   };
 

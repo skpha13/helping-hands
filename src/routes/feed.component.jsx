@@ -3,6 +3,8 @@ import logo1024 from "../assets/logo/logo-png-1024.png";
 import FilterOng from "../components/filters_ong.component";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import img1 from "../assets/burnt_house.jpg";
+import img2 from "../assets/casa_de_copii.jpg";
 
 const Feed = () => {
   const [posts, setPosts] = useState([]);
@@ -104,7 +106,7 @@ const Feed = () => {
             <FeedCard
               key={index}
               name={post.title}
-              img={logo1024}
+              img={index === 0 ? img1 : index === 1 ? img2 : logo1024}
               category={post.needs.$values}
               text={post.description}
               canHelp={true}
