@@ -1,9 +1,13 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
 import ButtonPrimary from "./button_primary.component";
 
 
 
 const Information = ({necesitati, quantity}) => {
+  const navigate = useNavigate();
+
   let defaultHelpFields ={}
   necesitati.map(need => {
     defaultHelpFields[need] = 0;
@@ -17,6 +21,9 @@ const Information = ({necesitati, quantity}) => {
     setHelpFields({ ...helpFields, [name]: number });
   };
 
+  const handleSubmit = () => {
+    navigate("/utilizator/multumim");
+  }
   return (
     <div className="m-4 ml-10 mr-10 items-center justify-between bg-ui-primary p-4 rounded-lg">
       <h1 className="text-xl mb-4">Spune-ne cu cat poti sa ajuti:</h1>
@@ -38,10 +45,10 @@ const Information = ({necesitati, quantity}) => {
           )
         })}
   
-        
       </div>
-      <div className="flex justify-center ">
-      <ButtonPrimary name="Submit" icon="fa-solid fa-plus" />
+      <div className="flex justify-center " onClick={handleSubmit}>
+          <ButtonPrimary name="Submit" icon="fa-solid fa-plus" />
+      
       </div>
     </div>
   );
