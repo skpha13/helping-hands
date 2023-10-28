@@ -41,7 +41,7 @@ const Feed = () => {
               key={index}
               name={post.title}
               img={logo1024}
-              category={post.needs.$values[0]}
+              category={post.needs.$values}
               text={post.description}
               canHelp={true}
             />
