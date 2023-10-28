@@ -6,19 +6,18 @@ const OngPreview = () => {
         const fetchOng = async () => {
             const response = await fetch('https://localhost:7272/api/Ong/ong?id=1');
             const ong = await response.json();
-            console.log(ong);
             const {name, ongDescription, address, email, image} = ong.data;
             setOng( {
                 titlu: name,
                 descriere: ongDescription,
                 adresa: address,
                 email: email,
-                imagine: image.slice(1) //am primit path ul cu un spatiu la inceput
+                imagine: '"' + image.slice(1) + '"' //am primit path ul cu un spatiu la inceput
             });
         };
         fetchOng();
       }, []);
-      console.log(ong.imagine);
+      console.log(ong.imagine)
     return (
         <div className='ong-profile-container'>
             <h2 className='ong-profile-title'>{ong.titlu}</h2>

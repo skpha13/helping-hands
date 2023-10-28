@@ -14,7 +14,8 @@ const FeedCard = ({ name, img, text, category, canHelp }) => {
   const onHelpClick = () => {
     setShowInfo(!showInfo);
   };
-
+  let quantity = []
+  let necesitati = []
   return (
     <div className="bg-ui-background p-4 m-8 rounded-lg">
       {/* div for flex to center elements */}
@@ -33,9 +34,14 @@ const FeedCard = ({ name, img, text, category, canHelp }) => {
 
       <p className="ml-10 mr-10 text-base">Avem nevoie de:</p>
       <div className="flex flex-col justify-between ml-10 mr-10">
-        {category.map((need, index) => (
-          <Need key={index} name={need.name} quantity={need.quantity}></Need>
-        ))}
+        {category.map((need, index) => {
+          quantity.push(need.quantity);
+          necesitati.push(need.name);
+          return(
+            <Need key={index} name={need.name} quantity={need.quantity}/>
+          )
+          }
+        )}
       </div>
 
       {canHelp && (
@@ -46,7 +52,7 @@ const FeedCard = ({ name, img, text, category, canHelp }) => {
             onHelpClick={onHelpClick}
           />
 
-          {showInfo && <Information />}
+          {showInfo && <Information necesitati={necesitati} quantity = {quantity} />}
         </div>
       )}
     </div>
