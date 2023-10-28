@@ -57,17 +57,31 @@ const Feed = () => {
     fetchData();
   }, []);
 
+  const verifyNeedInArray = (arr, need) => {
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i].name.toLowerCase() === need.toLowerCase()) {
+        return true;
+      }
+    }
+    return false;
+  };
+
   const filterPosts = (category, county) => {
+    // setPosts(copyPosts);
+    if (category === "" && county === "") {
+      window.location.reload();
+      return;
+    }
+    // console.log(posts, copyPosts);
     if (arePostsLoaded) {
       const filteredPosts = posts.filter((post) => {
-        console.log(post.needs.$values, post.county, county);
         if (category && county) {
           return (
-            post.needs.$values.includes(category) &&
+            verifyNeedInArray(post.needs.$values, category) &&
             post.county.toLowerCase() === county.toLowerCase()
           );
         } else if (category) {
-          return post.needs.$values.includes(category.toLowerCase());
+          return verifyNeedInArray(post.needs.$values, category);
         } else if (county) {
           return post.county.toLowerCase() === county.toLowerCase();
         } else {
