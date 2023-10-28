@@ -8,8 +8,8 @@ const Need = ({ name, quantity }) => {
         style={{ color: "#11999e" }}
         className="max-w-[8px] mr-2"
       />
-      <p className="mr-2">{name + ": "}</p>
-      <p>{quantity}</p>
+      <p className="mr-2 text-base">{name + ": "}</p>
+      <p className="text-base">{quantity}</p>
     </div>
   );
 };
