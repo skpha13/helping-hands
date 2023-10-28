@@ -1,30 +1,22 @@
 import logo from './logo-svg.svg';
 import './App.css';
+import { Route, Routes } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
-import { faPlus } from '@fortawesome/free-solid-svg-icons'
+import { faPlus, faCircle } from '@fortawesome/free-solid-svg-icons'
+import Feed from './routes/feed.component';
 
-library.add(fab, faPlus);
+
+library.add(fab, faPlus, faCircle);
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path='/feed' element={<Feed />}></Route>
+
+      <Route path='/*' element={<div>Not Found</div>} />
+    </Routes>
   );
 }
 
