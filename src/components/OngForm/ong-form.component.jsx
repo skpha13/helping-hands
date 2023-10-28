@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
-import ButtonPrimary from '../button_primary.component';
-import './ong-form.styles.css'
+import { useEffect, useState } from "react";
+import ButtonPrimary from "../button_primary.component";
+import "./ong-form.styles.css";
 
 const defaultFormFields = {
     titlu: "",
@@ -10,10 +10,10 @@ const defaultFormFields = {
     imagine: "",
 }
 
-const OngForm = ()=>{
-    const [formFields, setFormFields] = useState(defaultFormFields);
-    const handleChange = (event) => {
-        const { name, value, type } = event.target;
+const OngForm = () => {
+  const [formFields, setFormFields] = useState(defaultFormFields);
+  const handleChange = (event) => {
+    const { name, value, type } = event.target;
 
         if (type === 'file') {
           const file = event.target.files[0];
@@ -68,10 +68,13 @@ const OngForm = ()=>{
         <div className='ong-profile-btn-container'>
         <ButtonPrimary name="Salveaza" icon="" className="ong-edit-btn"/>
         </div>
-                
-        </form>
+
+        <div className="ong-profile-btn-container">
+          <ButtonPrimary name="Salveaza" icon="" className="ong-edit-btn" />
         </div>
-    )
-}
+      </form>
+    </div>
+  );
+};
 
 export default OngForm;
