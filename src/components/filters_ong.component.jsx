@@ -2,7 +2,7 @@ import ButtonPrimary from "../components/button_primary.component";
 
 const FilterOng = () => {
   return (
-    <div className="bg-ui-primary border-2 border-accent rounded-lg m-4 p-2 text-lg">
+    <div className="bg-ui-primary rounded-lg m-4 p-2 text-lg">
       <div className="flex flex-row items-center justify-evenly">
         <h1 className="text-xl bg-ui-background w-fit rounded-lg p-2">
           Filtreaza dupa
