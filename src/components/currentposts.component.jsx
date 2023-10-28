@@ -31,6 +31,23 @@ const CurrentPosts = () => {
     fetchData();
   }, []);
 
+  const deletePost = async (index) => {
+    try {
+      const response = await axios.delete(
+        "https://localhost:7272/api/Post/delete?id=" + posts[index].id
+      );
+      if (response === "Stergerea a reusit") {
+        console.log("Stergerea a reusit");
+        const updatedPosts = [...posts];
+        updatedPosts.splice(index, 1);
+        setPosts(updatedPosts);
+        window.location.reload(true);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <>
       <div className="m-8">
@@ -51,7 +68,10 @@ const CurrentPosts = () => {
                   name="Editeaza"
                   icon="fa-solid fa-pen-to-square"
                 />
-                <ButtonSecondaryRed name="Sterge" />
+                <ButtonSecondaryRed
+                  onHelpClick={deletePost(index)}
+                  name="Sterge"
+                />
               </div>
             </>
           ))}
