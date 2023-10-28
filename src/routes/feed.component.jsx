@@ -57,9 +57,32 @@ const Feed = () => {
     fetchData();
   }, []);
 
+  const filterPosts = (category, county) => {
+    if (arePostsLoaded) {
+      const filteredPosts = posts.filter((post) => {
+        console.log(post.needs.$values, post.county, county);
+        if (category && county) {
+          return (
+            post.needs.$values.includes(category) &&
+            post.county.toLowerCase() === county.toLowerCase()
+          );
+        } else if (category) {
+          return post.needs.$values.includes(category.toLowerCase());
+        } else if (county) {
+          return post.county.toLowerCase() === county.toLowerCase();
+        } else {
+          return true;
+        }
+      });
+      setPosts(filteredPosts);
+    }
+  };
+
   return (
     <div>
-      {areCountiesLoaded && <FilterOng counties={counties} />}
+      {areCountiesLoaded && (
+        <FilterOng counties={counties} helperFunction={filterPosts} />
+      )}
 
       <div className="m-8">
         {arePostsLoaded &&

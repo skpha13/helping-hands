@@ -1,6 +1,12 @@
 import ButtonPrimary from "../components/button_primary.component";
 
-const FilterOng = ({ counties }) => {
+const FilterOng = ({ counties, helperFunction }) => {
+  const sendData = () => {
+    const categoryValue = document.getElementById("category").value;
+    const countyValue = document.getElementById("county").value;
+    helperFunction(categoryValue, countyValue);
+  };
+
   return (
     <div className="bg-ui-primary rounded-lg m-4 p-2 text-lg">
       <div className="flex flex-row items-center justify-evenly">
@@ -10,16 +16,19 @@ const FilterOng = ({ counties }) => {
 
         <div>
           <label className="mr-2">Categorie</label>
-          <select className="rounded-xl bg-ui-background p-2">
-            <option value="1">Carti</option>
-            <option value="2">Haine</option>
-            <option value="3">Mobila</option>
+          <select id="category" className="rounded-xl bg-ui-background p-2">
+            <option value="">Toate</option>
+            <option value="carti">Carti</option>
+            <option value="haine">Haine</option>
+            <option value="mobila">Mobila</option>
+            <option value="lemn">Lemn</option>
           </select>
         </div>
 
         <div>
           <label className="mr-2">Judet</label>
-          <select className="rounded-xl bg-ui-background p-2">
+          <select id="county" className="rounded-xl bg-ui-background p-2">
+            <option value="">Toate</option>
             {counties.map((county, index) => (
               <option key={index} value={county}>
                 {county}
@@ -28,7 +37,12 @@ const FilterOng = ({ counties }) => {
           </select>
         </div>
 
-        <ButtonPrimary name={"Cauta"} icon="fa-solid fa-magnifying-glass" />
+        <ButtonPrimary
+          onClick={sendData}
+          name={"Cauta"}
+          icon="fa-solid fa-magnifying-glass"
+          onHelpClick={sendData}
+        />
       </div>
     </div>
   );
