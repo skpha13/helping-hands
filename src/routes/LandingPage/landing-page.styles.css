@@ -1,0 +1,25 @@
+@import '../../index.css';
+
+.landing-container{
+    height:100vh;
+    background-color:var(--ui-background);
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+.landing-title{
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+.landing-button{
+    font-size: 2rem;
+    color:white;
+    display: block;
+    width: 25rem;
+    background-color: var(--accent);
+    border-radius: 2rem;
+    padding: 0.5rem;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+}

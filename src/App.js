@@ -7,16 +7,18 @@ import { fab } from '@fortawesome/free-brands-svg-icons'
 import { faPlus, faCircle } from '@fortawesome/free-solid-svg-icons'
 import Feed from './routes/feed.component';
 
-
 library.add(fab, faPlus, faCircle);
 
 function App() {
   return (
-    <Routes>
-      <Route path='/feed' element={<Feed />}></Route>
+   <Routes>
+    <Route path="/" element={<LandingPage/>}>
+      {/* <Route path='utilizator' element={<UserPage/>}>
 
-      <Route path='/*' element={<div>Not Found</div>} />
-    </Routes>
+      </Route>
+      <Route path='ong' element={<ONGPage/>}></Route> */}
+    </Route>
+   </Routes>
   );
 }
 
