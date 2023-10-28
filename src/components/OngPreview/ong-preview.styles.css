@@ -1,0 +1,31 @@
+@import '../../index.css';
+.ong-profile-container{
+    background-color: var(--ui-background);
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 1.5rem;
+    padding: 2rem;
+    font-size: 1.3rem;
+}
+.ong-profile-title{
+    font-weight: 700;
+    font-size: 3rem;
+    color: black;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.ong-profile-img{
+    margin:0 auto;
+    width:fit-content;
+    margin-bottom: 2rem;
+}
+
+.ong-profile-desc{
+    margin-bottom: 2rem;
+}
+
+.ong-profile-contact{
+    font-weight: 500;
+    font-size: 1.7rem;
+    margin-bottom: 0.5em;
+}
