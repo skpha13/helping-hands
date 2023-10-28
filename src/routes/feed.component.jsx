@@ -30,6 +30,7 @@ const Feed = () => {
             img={logo1024}
             category={category}
             text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, nisl quis ultricies ultricies, nunc nisl ultricies nisl, quis ultricies nisl nisl quis nisl."
+            canHelp={true}
           />
         ))}
 
