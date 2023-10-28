@@ -18,7 +18,7 @@ const LandingPage = () => {
         <button
           className="landing-button"
           onClick={() => {
-            navigate("/ong");
+            navigate("/ong/profil");
           }}
         >
           ONG

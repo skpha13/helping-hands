@@ -1,10 +1,12 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import MarkerSvg from "../../assets/location-dot-solid.svg";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import "./user-map.styles.css";
+import Spinner from "../../components/Spinner/spinner.component";
 
 const UserMap = () => {
+  const [isMapLoaded, setIsMapLoaded] = useState(false);
   const zoom_lvl = 13;
   const mapRef = useRef(null);
 
@@ -52,7 +54,10 @@ const UserMap = () => {
             stroke: false,
           }).addTo(map);
 
-          map.on("click", (mapEvent) => console.log(mapEvent.latlng));
+          // map.on("click", (mapEvent) => console.log(mapEvent.latlng));
+          map.on("load", () => {
+            setIsMapLoaded(true); 
+          });
         },
         () => {
           alert("Nu am putut să te localizez!");
@@ -67,9 +72,19 @@ const UserMap = () => {
         Aici poti vedea toate ONG-urile din apropierea ta!{" "}
       </h1>
       <div
-        id="map"
-        style={{ height: "500px", width: "90%", margin: "2rem auto" }}
-      ></div>
+          id="map"
+          style={{ height: "500px", width: "90%", margin: "2rem auto" }}
+        >{!isMapLoaded ? <Spinner/> : ''}</div>
+      {/* {isMapLoaded ? (
+        <div
+          id="map"
+          style={{ height: "500px", width: "90%", margin: "2rem auto" }}
+        ></div>
+      ) : (
+        <Spinner />
+      )} */}
+     
+      
     </div>
   );
 };
