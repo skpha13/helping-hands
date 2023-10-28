@@ -1,7 +1,7 @@
 const Dashboard = () => {
   return (
     <div>
-      <h1>test</h1>
+      <h1>Creeaza postare</h1>
     </div>
   );
 };

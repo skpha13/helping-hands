@@ -23,9 +23,7 @@ function App() {
         <Route path="harta" element={<UserMap />} />
       </Route>
 
-      <Route path='navbarong' element={<NavbarONG />} >
-        <Route path='dashboard' element={<Dashboard />} />
-      </Route>
+      <Route path='dashboard' element={<Dashboard />} />
 
       {/* <Route path='ong' element={<ONGPage />}></Route>  */}
     </Routes >
