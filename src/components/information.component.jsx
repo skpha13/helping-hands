@@ -17,6 +17,7 @@ const Information = () => {
         <input
           type="number"
           value={numberValue}
+          min={0}
           onChange={handleNumberChange}
           className="border-2 border-ui-primary outline-none bg-ui-background m-2 rounded-lg p-1 focus:border-2 focus:border-accent max-w-[64px]"
         />

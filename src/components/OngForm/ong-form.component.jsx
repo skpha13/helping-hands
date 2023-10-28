@@ -3,11 +3,11 @@ import ButtonPrimary from '../button_primary.component';
 import './ong-form.styles.css'
 
 const defaultFormFields = {
-    titlu: "Asociatia Aluziva",
-    descriere: "Suntem toți aici să învățăm și împreună să facem o schimbare. Susținem comunitățile defavorizate, în mod special mamele și copiii din medii vulnerabile, educația în mediul rural și orice alte cauze care nu pot schimba lumea, dar pot schimba lumea cuiva. Picătură cu picătură se face un ocean. #picaturacupicaturasefaceunocean",
-    adresa: "Str. Dimitrie Cantemir nr. 3",
-    email: "hello@asociatiaaluziva.ro",
-    imagine: "../../assets/aluziva.png",
+    titlu: "",
+    descriere: "",
+    adresa: "",
+    email: "",
+    imagine: "",
 }
 
 const OngForm = ()=>{
@@ -22,16 +22,22 @@ const OngForm = ()=>{
           setFormFields({ ...formFields, [name]: value });
         }
       };
-    // useEffect(() => {
-    //     const fetchOng = async () => {
-    //         const response = await fetch('https://localhost:7272/api/Ong/ong?id=1');
-    //         const ong = await response.json();
-    //         console.log(ong);
-    //         const {titlu, ongDescription, adress, email, image} = ong.data;
-    //         // setFormFields(ong);
-    //     };
-    //     fetchOng();
-    //   }, []);
+    useEffect(() => {
+        const fetchOng = async () => {
+            const response = await fetch('https://localhost:7272/api/Ong/ong?id=1');
+            const ong = await response.json();
+            console.log(ong);
+            const {name, ongDescription, address, email, image} = ong.data;
+            setFormFields({
+                titlu: name,
+                descriere: ongDescription,
+                adresa: address,
+                email: email,
+                imagine: image
+            });
+        };
+        fetchOng();
+      }, []);
     return (
         <div>
         <form className='ong-edit-container' action="" method="post">
