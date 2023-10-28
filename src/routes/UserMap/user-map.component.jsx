@@ -46,6 +46,18 @@ const UserMap = () => {
             .bindPopup("Locatia ta")
             .openPopup();
 
+          L.marker([44.40545780750206, 26.09920935195409], { icon: customIcon })
+            .addTo(map)
+            .bindPopup("ONG 1")
+            .openPopup();
+
+          L.marker([44.39331559125859, 26.043945138016127], {
+            icon: customIcon,
+          })
+            .addTo(map)
+            .bindPopup("Strop De Fericire")
+            .openPopup();
+
           L.circle(coords, {
             color: "red",
             fillColor: "#f03",
@@ -56,7 +68,7 @@ const UserMap = () => {
 
           // map.on("click", (mapEvent) => console.log(mapEvent.latlng));
           map.on("load", () => {
-            setIsMapLoaded(true); 
+            setIsMapLoaded(true);
           });
         },
         () => {
@@ -72,9 +84,11 @@ const UserMap = () => {
         Aici poti vedea toate ONG-urile din apropierea ta!{" "}
       </h1>
       <div
-          id="map"
-          style={{ height: "500px", width: "90%", margin: "2rem auto" }}
-        >{!isMapLoaded ? <Spinner/> : ''}</div>
+        id="map"
+        style={{ height: "500px", width: "90%", margin: "2rem auto" }}
+      >
+        {!isMapLoaded ? <Spinner /> : ""}
+      </div>
       {/* {isMapLoaded ? (
         <div
           id="map"
@@ -83,8 +97,6 @@ const UserMap = () => {
       ) : (
         <Spinner />
       )} */}
-     
-      
     </div>
   );
 };
