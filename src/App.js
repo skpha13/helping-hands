@@ -1,17 +1,16 @@
 import { Route, Routes } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
-import { faPlus, faCircle, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+import { faPlus, faCircle, faMagnifyingGlass, faTrash, faPenToSquare, faX } from '@fortawesome/free-solid-svg-icons'
 import Feed from './routes/feed.component';
 import LandingPage from './routes/LandingPage/landing-page.component';
 import Dashboard from './routes/dashboard.component';
-import NavbarONG from './components/navbar_ong.component';
 import Navbar from './routes/navigation/nav.component';
 import UserMap from './routes/UserMap/user-map.component';
 // import ONGPage from './routes/ONGPage/ong-page.component';
 import './App.css';
 
-library.add(fab, faPlus, faCircle, faMagnifyingGlass);
+library.add(fab, faPlus, faCircle, faMagnifyingGlass, faTrash, faPenToSquare, faX);
 
 function App() {
   return (

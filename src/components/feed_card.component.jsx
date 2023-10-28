@@ -3,7 +3,7 @@ import ButtonPrimary from "./button_primary.component";
 import { useState } from "react";
 import Information from "./information.component";
 
-const FeedCard = ({ name, img, text, category }) => {
+const FeedCard = ({ name, img, text, category, canHelp }) => {
   const [showInfo, setShowInfo] = useState(false);
 
   const onHelpClick = () => {
@@ -31,13 +31,17 @@ const FeedCard = ({ name, img, text, category }) => {
         <Need name={category.name} quantity={category.quantity}></Need>
       </div>
 
-      <ButtonPrimary
-        name="Ajuta"
-        icon="fa-solid fa-plus"
-        onHelpClick={onHelpClick}
-      />
+      {canHelp && (
+        <div>
+          <ButtonPrimary
+            name="Ajuta"
+            icon="fa-solid fa-plus"
+            onHelpClick={onHelpClick}
+          />
 
-      {showInfo && <Information />}
+          {showInfo && <Information />}
+        </div>
+      )}
     </div>
   );
 };
