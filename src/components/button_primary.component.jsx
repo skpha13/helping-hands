@@ -1,10 +1,15 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ButtonPrimary = ({ name, icon, onHelpClick }) => {
+  const handleClick = (e) => {
+    e.preventDefault();
+    onHelpClick();
+  };
+
   return (
     <button
-      onClick={onHelpClick}
-      className="bg-highlight rounded-lg p-2 min-w-[96px] ml-10"
+      onClick={handleClick}
+      className="bg-highlight rounded-lg p-2 min-w-[96px] max-w-[256px] ml-10"
     >
       <FontAwesomeIcon
         icon={icon}
