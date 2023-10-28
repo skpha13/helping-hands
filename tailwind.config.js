@@ -5,6 +5,12 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontSize: {
+        sm: '1rem',
+        base: '1.25rem',
+        xl: '1.5rem',
+        '2xl': '2rem',
+      },
       colors: {
         'highlight': '#30E3CA',
         'accent': '#11999E',
