@@ -1,8 +1,11 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const ButtonPrimary = ({ name, icon }) => {
+const ButtonPrimary = ({ name, icon, onHelpClick }) => {
   return (
-    <button className="bg-highlight rounded-lg p-2 min-w-[96px] ml-10">
+    <button
+      onClick={onHelpClick}
+      className="bg-highlight rounded-lg p-2 min-w-[96px] ml-10"
+    >
       <FontAwesomeIcon
         icon={icon}
         style={{ color: "#40514E" }}
@@ -11,6 +14,12 @@ const ButtonPrimary = ({ name, icon }) => {
       {name}
     </button>
   );
+};
+
+ButtonPrimary.defaultProps = {
+  name: "Buton",
+  icon: "fa-solid fa-plus",
+  onHelpClick: () => {},
 };
 
 export default ButtonPrimary;
