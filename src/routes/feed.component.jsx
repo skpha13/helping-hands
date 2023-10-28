@@ -11,7 +11,7 @@ const Feed = () => {
   const getAllPosts = async () => {
     try {
       const response = await axios.get("https://localhost:7272/api/Post/posts");
-      return response.data.data;
+      return response.data.data.$values;
     } catch (error) {
       if (error.response.data.status !== 200) {
         console.log(error.response.data.message);
@@ -41,7 +41,7 @@ const Feed = () => {
               key={index}
               name={post.title}
               img={logo1024}
-              category={post.needs}
+              category={post.needs.$values[0]}
               text={post.description}
               canHelp={true}
             />
